@@ -5,8 +5,6 @@
  */
 package inventario;
 
-import vista.Consulta;
-
 /**
  *
  * @author LN710Q
@@ -17,11 +15,7 @@ public class Inventario {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Consulta().setVisible(true);
-            }
-        });
+        // TODO code application logic here
     }
+    
 }
