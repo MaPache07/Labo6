@@ -26,7 +26,7 @@ public class FiltroDao implements metodos<Filtro> {
     private static final String SQL_UPDATE = "UPDATE filtros_aceite SET marca = ?, stock = ?, existencia = ? WHERE codFiltro = ?";
     private static final String SQL_DELETE = "DELETE FROM filtros_aceite WHERE codFiltro = ?";
     private static final String SQL_READ = "SELECT * FROM filtros_aceite WHERE codFiltro = ?";
-    private static final String SQL_REDALL = "SELECT * FROM filtros_aceite";
+    private static final String SQL_READALL = "SELECT * FROM filtros_aceite";
     private static final Conexion con = Conexion.conectar();
     
     @Override
@@ -122,9 +122,9 @@ public class FiltroDao implements metodos<Filtro> {
         ResultSet rs;
         try {
             s = con.getCnx().prepareStatement(SQL_READALL);
-            rs = s.excecuteQuery(SQL_READALL);
-            while(rs.next){
-                all.add(new Filtro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)))
+            rs = s.executeQuery(SQL_READALL);
+            while(rs.next()){
+                all.add(new Filtro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
             }
             rs.close();
         } catch(SQLException ex) {
